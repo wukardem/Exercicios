@@ -1,0 +1,164 @@
+      ************************************************************
+      *                        MCONDATA.MP                       *
+      *      FUNCAO - WORKING PADRAO PARA CHAMADAS VIA COPY      *
+      ************************************************************
+      *
+       77  WK77-ANO                    PIC 9(005) VALUE ZEROS.
+       77  WK-EMP-NOME                 PIC X(040) VALUE
+           "Desenvolvido por Odair Garcia Arouca...".
+       77  WK-CONTLIN                  PIC 9(002) VALUE ZEROS.
+       77  WK-FOLHA                    PIC 9(003) VALUE ZEROS.
+       77  WK-LIMPA                    PIC X(073) VALUE SPACES.
+       77  WK-MENSAGEM                 PIC X(073) VALUE SPACES.
+       77  WK-COD-PGM                  PIC X(008) VALUE SPACES.
+       77  WK-DESC-PGM                 PIC X(055) VALUE SPACES.
+       77  WK-CONFIRMA                 PIC X(001) VALUE SPACES.
+       77  WK-CANCELA                  PIC X(001) VALUE SPACES.
+       77  WK-RESTO                    PIC 9(002) VALUE ZEROS.
+       77  WK-OPCAO                    PIC 9(001) VALUE ZEROS.
+       77  WK-1900                     PIC 99     VALUE 80.
+       77  WK-MSG-RT1                  PIC X(016) VALUE SPACES.
+       77  WK-MSG-RT2                  PIC X(010) VALUE SPACES.
+       77  WK-MSG-RT3                  PIC X(016) VALUE SPACES.
+       77  WK-MSG-RT4                  PIC X(045) VALUE SPACES.
+       77  WK-MSG-ADV1                 PIC X(055) VALUE SPACES.
+       77  WK-MSG-ADV2                 PIC X(041) VALUE SPACES.
+       77  WK-DIA-SALVO                PIC 9(002) VALUE ZEROS.
+       77  WK-MSG-CONF                 PIC X(045) VALUE SPACES.
+       77  WK-2DIG                     PIC Z9.
+       77  WK-3DIG                     PIC ZZ9.
+       77  WK-4DIG                     PIC ZZZ9.
+       77  WK-5DIG                     PIC ZZZZ9.
+       77  WK-6DIG                     PIC ZZZZZ9.
+       77  WK-7DIG                     PIC ZZZZZZ9.
+       77  WK-8DIG                     PIC ZZZZZZZ9.
+       77  WK-9DIG                     PIC ZZZZZZZZ9.
+       77  WK-10DIG                    PIC ZZZZZZZZZ9.
+       77  WK-11DIG                    PIC ZZZZZZZZZZ9.
+       77  WK-12DIG                    PIC ZZZZZZZZZZZ9.
+       77  WK-ERRO-GRAVACAO            PIC XXX    VALUE SPACES.
+       77  WK-FIM-ARQUIVO              PIC XXX    VALUE SPACES.
+       01  WK-MSG-QUEBRADA.
+           03  WK-MSG-Q1               PIC X(035) VALUE SPACES.
+           03  WK-MSG-Q2               PIC X(010) VALUE SPACES.
+
+       01 screens occurs 5 times.
+          03 screen-origin        pic 9(4) comp-x value 0.
+          03 screen-buffer        pic x(2000).
+          03 screen-attrs         pic x(2000).
+          03 screen-string-length pic 9(4) comp-x value 2000.
+
+       01 screens-A.
+          03 screen-origin-A        pic 9(4) comp-x value 0.
+          03 screen-buffer-A        pic x(2000).
+          03 screen-attrs-A         pic x(2000).
+          03 screen-string-length-A pic 9(4) comp-x value 2000.
+       01 screens-B.
+          03 screen-origin-B        pic 9(4) comp-x value 0.
+          03 screen-buffer-B        pic x(2000).
+          03 screen-attrs-B         pic x(2000).
+          03 screen-string-length-B pic 9(4) comp-x value 2000.
+
+       01  WK01-RETCOD.
+           03 WK01-S1                  PIC X.
+           03 WK01-S2                  PIC X.
+           03 WK01-S2-BIN REDEFINES WK01-S2  PIC 9(002) COMP-X.
+       01 WK01-RETCOD-DISP             PIC X(005).
+       01 FILLER REDEFINES WK01-RETCOD-DISP.
+           03 WK01-S1-DISP             PIC X.
+           03 WK01-S2-DISP             PIC X.
+           03 WK01-S3-DISP             PIC 9(003).
+       01  WK01-TECLA                  PIC X(002) VALUE SPACES.
+           88  WK88-ESC          VALUE "00".
+           88  WK88-F1           VALUE "01".
+           88  WK88-F2           VALUE "02".
+           88  WK88-F3           VALUE "03".
+           88  WK88-F4           VALUE "04".
+           88  WK88-F5           VALUE "05".
+           88  WK88-F6           VALUE "06".
+           88  WK88-F7           VALUE "07".
+           88  WK88-F8           VALUE "08".
+           88  WK88-F9           VALUE "09".
+
+       01  WK-DATA-SYS                 PIC 9(008) VALUE ZEROS.
+       01  WK-DATA-CORR                PIC 9(008) VALUE ZEROS.
+       01  WK-DT                       PIC 9(008) VALUE ZEROS.
+       01  WK-HORA                     PIC X(006) VALUE ZEROS.
+       01  FILLER REDEFINES WK-HORA.
+           03  WK-HR                   PIC 99.
+           03  WK-MIN                  PIC 99.
+           03  WK-SEC                  PIC 99.
+       01  WK-DATA                     PIC 9(006) VALUE ZEROS.
+       01  FILLER REDEFINES WK-DATA.
+           03 WK-DIA                   PIC 9(002).
+           03 WK-MES                   PIC 9(002).
+           03 WK-ANO                   PIC 9(002).
+       01  WK-DATA-MIL                 PIC 9(008).
+       01  FILLER REDEFINES WK-DATA-MIL.
+           03 WK-ANO1-MIL              PIC 9(002).
+           03 WK-ANO2-MIL              PIC 9(002).
+           03 WK-MES-MIL               PIC 9(002).
+           03 WK-DIA-MIL               PIC 9(002).
+       01  WK-DATA-INV                 PIC 9(008).
+       01  FILLER REDEFINES WK-DATA-INV.
+           03 WK-ANO-INV               PIC 9(004).
+           03 WK-MES-INV               PIC 9(002).
+           03 WK-DIA-INV               PIC 9(002).
+
+       01  WK-DIAS-DO-MES    PIC  X(024) VALUE
+           '31XX31303130313130313031'.
+       01  FILLER REDEFINES WK-DIAS-DO-MES.
+           03 WK-TAB-DIAS-MES PIC 9(002) OCCURS 12 TIMES.
+       01  WK-DATA-EXT.
+           03 WK-DIA-EXT              PIC 99           VALUE ZEROS.
+           03 FILLER                  PIC X(004)       VALUE " DE ".
+           03 WK-MES-EXT              PIC X(009)       VALUE SPACES.
+           03 FILLER                  PIC X(004)       VALUE " DE ".
+           03 WK-ANO-EXT              PIC 9.999        VALUE ZEROS.
+       01  WK-MESES.
+           03 FILLER                  PIC X(009)
+                    VALUE " JANEIRO ".
+           03 FILLER                  PIC X(009)
+                    VALUE "FEVEREIRO".
+           03 FILLER                  PIC X(009)
+                    VALUE "  MARCO  ".
+           03 FILLER                  PIC X(009)
+                    VALUE "  ABRIL  ".
+           03 FILLER                  PIC X(009)
+                    VALUE "  MAIO   ".
+           03 FILLER                  PIC X(009)
+                    VALUE "  JUNHO  ".
+           03 FILLER                  PIC X(009)
+                    VALUE "  JULHO  ".
+           03 FILLER                  PIC X(009)
+                    VALUE " AGOSTO  ".
+           03 FILLER                  PIC X(009)
+                    VALUE "SETEMBRO ".
+           03 FILLER                  PIC X(009)
+                    VALUE " OUTUBRO ".
+           03 FILLER                  PIC X(009)
+                    VALUE "NOVEMBRO ".
+           03 FILLER                  PIC X(009)
+                    VALUE "DEZEMBRO ".
+       01  WK-MESES-R REDEFINES WK-MESES.
+           03 WK-TABELA-MES  OCCURS 12 TIMES.
+           05 WK-MES-R                PIC X(009).
+       01  WK-OPCAOX.
+           03 FILLER                  PIC X(018)
+                    VALUE " [1] - INCLUSAO ".
+           03 FILLER                  PIC X(018)
+                    VALUE " [2] - ALTERACAO ".
+           03 FILLER                  PIC X(018)
+                    VALUE " [3] - EXCLUSAO  ".
+           03 FILLER                  PIC X(018)
+                    VALUE " [4] - IMPORTACAO  ".
+           03 FILLER                  PIC X(018)
+                    VALUE " [9] - FINALIZA  ".
+           03 FILLER                  PIC X(018)
+                    VALUE "                 ".
+
+
+       01  WK-OPCAO-R REDEFINES WK-OPCAOX.
+           03 WK-TABELA-OPCAO  OCCURS 7 TIMES.
+           05 WK-OPCAO-NOME           PIC X(018).
+

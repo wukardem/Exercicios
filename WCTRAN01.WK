@@ -1,0 +1,31 @@
+     +**********************************************************************
+     +*                           WCTRAN01.WK                              *
+     +*       MODULO PADRAO DE TRANSFERENCIA DADOS ENTRE PROGRAMAS         *
+     +*    DEFINIDO NA LINKAGE SECTION - PODE SER ACRESCENTADO             *
+     +*                                  MAIS INFORMACOES                  *
+     +**********************************************************************
+     +*
+     + 01  LK-TRANSFERENCIA.
+     +     03 LK-EMP-COD               PIC  9(002).
+     +     03 LK-EMP-NOME              PIC  X(040).
+     +     03 LK-DT-VALIDADE           PIC  9(008).
+     +     03 LK-USUARIO               PIC  X(008).
+     +     03 LK-MENU                  PIC  9(008).
+     +     03 LK-LIBERACAO             PIC  X(002).
+     +     03 LK-INDICE                PIC  9(001).
+     +     03 LK-PGM                   PIC  X(008) OCCURS 6 TIMES.
+     +     03 LK-PGM-CHAMADO           PIC  X(008).
+     +     03 LK-PGM-CHAMADOR          PIC  X(008).
+     +     03 LK-CONTINUA              PIC  X(001).
+     +        88 LK88-SIM-CONTINUA-ROTINA          VALUE 'S' 's'.
+     +        88 LK88-NAO-CONTINUA-ROTINA          VALUE 'N' 'n'.
+     +     03 LK-COD                   PIC  9(015).
+     +     03 LK-SEQUENCIA             PIC  9(015).
+     +     03 LK-PED-NUM               PIC  X(020).
+           03  WS01-LK.
+               05  WS01-COMANDO                PIC X(004).
+               05  WS01-SALVA-POSICAO OCCURS 4 TIMES.
+                   07  WS01-SALVA-LIN          PIC 9(02).
+                   07  WS01-SALVA-COL          PIC 9(02).
+                   07  WS01-OPCAO              PIC 9(001).
+

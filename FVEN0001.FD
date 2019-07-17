@@ -1,0 +1,16 @@
+      *****************************************************
+      * FVEN0001.FD -  CADASTRO DE VENDEDORES *
+      * MAX.:   200 Bytes                                 *
+      *****************************************************
+      *
+       FD  ARQVEN
+       01  VEN-REG.
+           03  VEN-CHAVE-PRI.
+               05 VEN-CPF               PIC X(011).
+           03  VEN-CHAVE-SEC.
+			   05 VEN-COD               PIC 9(003).		   
+           03  VEN-CHAVE-TER.
+               05 VEN-NOME              PIC X(040).
+           03  VEN-LATITUDE             PIC s9(003)v9(008).
+           03  VEN-LONGITUDE            PIC s9(003)v9(008).
+           03  FILLER                   PIC X(120).

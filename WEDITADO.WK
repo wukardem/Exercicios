@@ -1,0 +1,77 @@
+       77  WA-CEP-EDITADO             PIC  ZZZZZ/ZZ9.
+       77  WA-TELEFONE-EDITADO        PIC .ZZZ/ZZZZ.ZZZ9.
+       77  WA-FAX-EDITADO             PIC .ZZZ/ZZZZ.ZZZ9.
+       77  WA-TELEX-EDITADO           PIC .ZZZ/ZZZ9.
+       77  WA-CEP-NUM                 PIC 9(008).
+       77  WA-TELEFONE-NUM            PIC 9(012).
+       77  WA-TELEX-NUM               PIC 9(007).
+       77  WA-FAX-NUM                 PIC 9(012).
+       77  WA-CGC-EDITADO             PIC ZZZ.ZZZ.ZZZ/ZZZZ/Z9.
+       77  WA-CPF-EDITADO             PIC .....ZZZ.ZZZ.ZZZ/Z9.
+       77  WA-DT-EDITADA              PIC 99/99/99.
+       77  WA-LIMPA-FONE              PIC X(013) VALUE
+           "(   )   -    ".
+       77  WA-CGC-NUM                 PIC 9(015) VALUE ZEROS.
+       77  WA-CPF-NUM                 PIC 9(015) VALUE ZEROS.
+
+       01  WA-TELEFONE-EDIT.
+           03 WAT-1                    PIC X(001)    VALUE "(".
+           03 WA-CODIGO-AREA           PIC 999      VALUE ZEROES.
+           03 WAT-2                    PIC X(001)    VALUE ")".
+           03 WA-NRO-LINHA.
+              05 WA-PREFIXO            PIC ZZ99       VALUE ZEROES.
+              05 WAT-4                 PIC X(001)    VALUE "-".
+              05 WA-NUMERO             PIC 9999      VALUE ZEROES.
+
+       01  WA-TELEFONE-AUX             PIC 9(012)    VALUE ZEROES.
+       01  WA-TELEFONE-R  REDEFINES WA-TELEFONE-AUX.
+           03 WA-CODIGO-AREA-AUX       PIC 9(004).
+           03 WA-PREFIXO-AUX           PIC 9(004).
+           03 WA-NUMERO-AUX            PIC 9(004).
+       01  WA-FAX-EDIT. 
+           03 WAF-1                    PIC X(001)    VALUE "(".
+           03 WAF-CODIGO-AREA           PIC 999      VALUE ZEROES.
+           03 WAF-2                    PIC X(001)    VALUE ")".
+           03 WAF-NRO-LINHA.
+              05 WAF-PREFIXO            PIC ZZ99       VALUE ZEROES.
+              05 WAF-4                 PIC X(001)    VALUE "-".
+              05 WAF-NUMERO             PIC 9999      VALUE ZEROES.
+
+       01  WA-FAX-AUX             PIC 9(012)    VALUE ZEROES.
+       01  WA-FAX-R  REDEFINES WA-FAX-AUX.
+           03 WAF-CODIGO-AREA-AUX       PIC 9(004).
+           03 WAF-PREFIXO-AUX           PIC 9(004).
+           03 WAF-NUMERO-AUX            PIC 9(004).
+
+       01  WA-TELEX-EDIT.
+           03 WAX-1                    PIC X(001)    VALUE "(".
+           03 WA-AREA-TELEX            PIC 999       VALUE ZEROES.
+           03 WAX-2                    PIC X(001)    VALUE ")".
+           03 WA-NUMERO-TELEX          PIC Z999      VALUE ZEROES.
+
+       01  WA-TELEX-AUX                PIC 9(007)    VALUE ZEROES.
+       01  WA-TELEX-R REDEFINES WA-TELEX-AUX.
+           03 WA-AREA-TELEX-AUX        PIC 9(003).
+           03 WA-NUMERO-TELEX-AUX      PIC 9(004).
+
+       01  WA-CGC-CPF-AUX              PIC 9(014)   VALUE ZEROES.
+       01  FILLER  REDEFINES WA-CGC-CPF-AUX.
+           05 WA-NRO-CGC-CPF-AUX       PIC 9(012).
+           05 WA-DIG-CGC-CPF-AUX       PIC 9(002).
+
+       01  WA-CGC-EDIT.
+           03 WA-NRO-CGC               PIC Z99.999.999/9999.
+           03 WACG-1                   PIC X(001)   VALUE "-".
+           03 WA-DIG-CGC               PIC 99.
+
+       01  WA-CPF-EDIT.
+           03 WA-NRO-CPF               PIC ZZZZZ999.999.999.
+           03 WACP-1                   PIC X(001)   VALUE "-".
+           03 WA-DIG-CPF               PIC 99.
+       01  WA-CEP-EDIT.
+           03  WA-CEP1-EDIT            PIC  99999.
+           03  WACEP-1                 PIC X VALUE "-".
+           03  WA-CEP2-EDIT            PIC 999.
+       01  WA-CEP-AUX.
+           03  WA-CEP1-AUX             PIC 9(005).
+           03  WA-CEP2-AUX             PIC 999.

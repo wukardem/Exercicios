@@ -1,0 +1,26 @@
+      *****************************************************
+      * FMENUHB0.FD -  CADASTRO UNICO DE MENU             *
+      * OBS.: NAO PODERA HAVER DUPLICIDADE DESTE LAY-OUT  *
+      * MAX.: X.XXX Bytes                                 *
+      *****************************************************
+      *
+       FD  ARQMEN
+        01  MEN-REG.
+           03 MEN-CHAVE-PRI.
+              05 MEN-EMP-COD            PIC  9(002).
+              05 MEN-COD                PIC  9(008).
+           03 MEN-CHAVE-SEC.
+              05 MEN-EMP-COD-SEC        PIC  9(002).
+              05 MEN-PROG               PIC  X(008).
+           03 MEN-CHAVE-TER.
+              05 MEN-EMP-COD-TER        PIC  9(002).
+              05 MEN-DESC               PIC  X(030).
+           03 MEN-SENHA                 PIC  X(008).
+           03 MEN-BLOQUEIO              PIC  X(002).
+              88 MEN88-NAO-BLOQUEIA                    VALUE "00".
+              88 MEN88-BLOQUEIA-PROGRAMA               VALUE "01".
+              88 MEN88-BLOQUEIA-NIVEL-MENU             VALUE "02".
+              88 MEN88-BLOQUEIA-SISTEMA                VALUE "03".
+           03 MEN-TABELA-PROGRAMA.
+              05 MEN-PGM                PIC  X(008) OCCURS 6 TIMES.
+           03 FILLER                    PIC  X(020).

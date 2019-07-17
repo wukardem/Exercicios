@@ -1,0 +1,48 @@
+
+
+       01 screen-position.
+          05 screen-row       pic 9(2) comp-x value 09.
+          05 screen-col       pic 9(2) comp-x value 29.
+       01 string-length        pic 9(4) comp-x value 20.
+
+       01 top-row          pic 9(2) comp-x value 09.
+       01 bottom-row	       pic 9(2) comp-x value 14.
+
+       01 reverse-vid          pic x(80) value all x"0F".
+       01 black-and-white      pic x(80) value all x"1E".
+       01 mouse-param              pic 99 comp-x.
+       01 use-mouse                pic 99 comp-x value 64.
+
+       01 get-single-char      pic 9(2) comp-x value 26.
+       01 key-status.
+          05 key-type         pic x.
+          05 key-code-1       pic 9(2) comp-x.
+          05 key-code-2       pic 9(2) comp-x.
+
+       01 set-bit-pairs        pic 9(2) comp-x value 1.
+       01 user-key-control.
+          05 user-key-setting pic 9(2) comp-x value 1.
+          05 filler           pic x value "1".
+          05 first-user-key   pic 9(2) comp-x value 1.
+          05 number-of-keys   pic 9(2) comp-x value 4.
+
+       78 esc-fn-key           value 0.
+       78 user-fn-key          value "1".
+       78 adis-fn-key          value "2".
+       78 norm-fn-key          value "3".
+       78 f1-key           value 1.
+       78 f2-key           value 2.
+       78 f3-key           value 3.
+       78 f4-key           value 4.
+
+       78 carriage-return  value 0.
+       78 up-arrow         value 5.
+       78 esc-arrow        value 27.
+       78 down-arrow       value 6.
+       78 um-arrow         value 49.
+       78 dois-arrow       value 50.
+       78 tres-arrow       value 51.
+       78 quatro-arrow     value 52.
+       78 cinco-arrow      value 53.
+       78 nove-arrow       value 57.
+

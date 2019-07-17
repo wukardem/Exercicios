@@ -1,0 +1,16 @@
+      *****************************************************
+      * FCLI0001.FD -  CADASTRO DE CLIENTES *
+      * MAX.:   200 Bytes                                 *
+      *****************************************************
+      *
+       FD  ARQCLI
+       01  CLI-REG.
+           03  CLI-CHAVE-PRI.
+               05 CLI-CNPJ              PIC X(014).
+           03  CLI-CHAVE-SEC.
+			   05 CLI-COD               PIC 9(007).		   
+           03  CLI-CHAVE-TER.
+               05 CLI-NOME              PIC X(040).
+           03  CLI-LATITUDE             PIC s9(003)v9(008).
+           03  CLI-LONGITUDE            PIC s9(003)v9(008).
+           03  FILLER                   PIC X(105).

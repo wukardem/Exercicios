@@ -1,0 +1,18 @@
+      *****************************************************
+      * FCLI0001.SEL -  CADASTRO DE CLIENTES *
+      * MAX.:   200 Bytes                                 *
+      *****************************************************
+      *
+           SELECT ARQCLI   ASSIGN TO DISK WS-CAMINHO
+                           ORGANIZATION IS INDEXED
+                           ACCESS MODE  IS DYNAMIC
+                           RECORD KEY   IS CLI-CHAVE-PRI
+                           ALTERNATE KEY IS CLI-CHAVE-SEC
+                                            WITH DUPLICATES
+						   ALTERNATE KEY IS CLI-CHAVE-TER
+                                            WITH DUPLICATES											
+                           FILE STATUS  IS WK01-RETCOD
+                           LOCK MODE IS MANUAL.
+						   
+    					   
+

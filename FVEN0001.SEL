@@ -1,0 +1,16 @@
+      *****************************************************
+      * FVEN0001.SEL -  CADASTRO DE VENDEDORES *
+      * MAX.:   200 Bytes                                 *
+      *****************************************************
+      *
+           SELECT ARQVEN   ASSIGN TO DISK WS-CAMINHO
+                           ORGANIZATION IS INDEXED
+                           ACCESS MODE  IS DYNAMIC
+                           RECORD KEY   IS VEN-CHAVE-PRI
+                           ALTERNATE KEY IS VEN-CHAVE-SEC
+                                            WITH DUPLICATES
+						   ALTERNATE KEY IS VEN-CHAVE-TER
+                                            WITH DUPLICATES											
+                           FILE STATUS  IS WK01-RETCOD
+                           LOCK MODE IS MANUAL.
+

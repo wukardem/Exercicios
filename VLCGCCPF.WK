@@ -1,0 +1,32 @@
+     +*************************************************
+     +*                  VLCGCCPF                     *
+     +*        PARAMETROS PARA ROTINA VLCGCCPF         *
+     +*************************************************
+     + 01  SR-PARAM-VLCGCCPF.
+     +     03 SR-DES-FUNCAO            PIC  X(008).
+     +     03 SR-COD-RETORNO           PIC  9(002).
+     +*
+     +* CODIGOS DE RETORNO - TODAS AS FUNCOES
+     +        88 SR88-FUNCAO-OK                    VALUE 00.
+     +        88 SR88-FUNCAO-INVALIDA              VALUE 01.
+     +        88 SR88-DADO-NAO-NUMERICO            VALUE 99.
+     +        88 SR88-ERR-GERAL                    VALUE 02 THRU 99.
+     +* FUNCAO CGC
+     +        88 SR88-CGC-INVALIDO                 VALUE 02.
+     +* FUNCAO CPF
+     +        88 SR88-CPF-INVALIDO                 VALUE 02.
+     +*
+     +* PARAMETROS VARIAVEIS PARA AS FUNCOES
+     +*
+     +     03 SR-PARAM-VARIAVEIS       PIC  X(050).
+     +*
+     +* FUNCAO CGC - CALCULA DIGITO VERIFICADOR CGC
+     +*
+     +     03 FILLER REDEFINES SR-PARAM-VARIAVEIS.
+     +        05 SR-NUM-CGC           PIC  9(014).
+     +*
+     +* FUNCAO CPF - CALCULA DIGITO VERIFICADOR CPF
+     +*
+     +     03 FILLER REDEFINES SR-PARAM-VARIAVEIS.
+     +        05 SR-NUM-CPF           PIC  9(011).
+     +*
